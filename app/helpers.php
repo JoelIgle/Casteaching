@@ -42,20 +42,20 @@ if (!function_exists('create_default_videos')) {
         ]);
     }
 }
-if (!function_exists('create_superadmin_user')) {
-
-    function create_superadmin_user()
-    {
-        $user = User::create([
-            'name' => 'SuperAdmin',
-            'email' => 'superadmin@casteaching.com',
-            'password' => Hash::make('12345678'),
-        ]);
-        $user->superadmin = true;
-        $user->save();
-        return $user;
-    }
-}
+//if (!function_exists('create_superadmin_user')) {
+//
+//    function create_super_admin_user()
+//    {
+//        $user = User::create([
+//            'name' => 'SuperAdmin',
+//            'email' => 'superadmin@casteaching.com',
+//            'password' => Hash::make('12345678'),
+//        ]);
+//        $user->superadmin = true;
+//        $user->save();
+//        return $user;
+//    }
+//}
 
 if (!function_exists('create_regular_user')) {
 
@@ -146,6 +146,28 @@ if (!function_exists('create_video_manager_user')) {
         }
 }
 
+
+if (!function_exists('create_user_manager_user')) {
+
+    function create_user_manager_user()
+    {
+        $user = User::create([
+            'name' => 'UsersManager',
+            'email' => 'usersmanager@gmail.com',
+            'password' => Hash::make('12345678'),
+        ]);
+//
+//        Permission::create(['name' => 'users_manage_index']);
+//
+//        $user->givePermissionTo('users_manage_index');
+
+
+
+
+        return $user;
+    }
+}
+
 if (!function_exists('create_super_admin_user')) {
 
     function create_super_admin_user()
@@ -156,6 +178,9 @@ if (!function_exists('create_super_admin_user')) {
             'password' => Hash::make('12345678'),
         ]);
 
+        $user->superadmin = true;
+        $user->save();
+
         Permission::firstOrCreate(['name' => 'videos_manage_index']);
         Permission::firstOrCreate(['name' => 'videos_manage_create']);
         Permission::firstOrCreate(['name' => 'videos_manage_store']);
@@ -163,12 +188,29 @@ if (!function_exists('create_super_admin_user')) {
         Permission::firstOrCreate(['name' => 'videos_manage_update']);
         Permission::firstOrCreate(['name' => 'videos_manage_destroy']);
 
+        Permission::firstOrCreate(['name' => 'users_manage_index']);
+        Permission::firstOrCreate(['name' => 'users_manage_create']);
+        Permission::firstOrCreate(['name' => 'users_manage_store']);
+        Permission::firstOrCreate(['name' => 'users_manage_edit']);
+        Permission::firstOrCreate(['name' => 'users_manage_update']);
+        Permission::firstOrCreate(['name' => 'users_manage_destroy']);
+
+
         $user->givePermissionTo('videos_manage_index');
         $user->givePermissionTo('videos_manage_create');
         $user->givePermissionTo('videos_manage_store');
         $user->givePermissionTo('videos_manage_edit');
         $user->givePermissionTo('videos_manage_update');
         $user->givePermissionTo('videos_manage_destroy');
+
+        $user->givePermissionTo('users_manage_index');
+        $user->givePermissionTo('users_manage_create');
+        $user->givePermissionTo('users_manage_store');
+        $user->givePermissionTo('users_manage_edit');
+        $user->givePermissionTo('users_manage_update');
+        $user->givePermissionTo('users_manage_destroy');
+
+
 
 
         return $user;
@@ -185,6 +227,7 @@ if (!function_exists('create_super_admin_user_profe')) {
             'password' => Hash::make('12345678'),
         ]);
 
+
         Permission::firstOrCreate(['name' => 'videos_manage_index']);
         Permission::firstOrCreate(['name' => 'videos_manage_create']);
         Permission::firstOrCreate(['name' => 'videos_manage_store']);
@@ -192,12 +235,27 @@ if (!function_exists('create_super_admin_user_profe')) {
         Permission::firstOrCreate(['name' => 'videos_manage_update']);
         Permission::firstOrCreate(['name' => 'videos_manage_destroy']);
 
+        Permission::firstOrCreate(['name' => 'users_manage_index']);
+        Permission::firstOrCreate(['name' => 'users_manage_create']);
+        Permission::firstOrCreate(['name' => 'users_manage_store']);
+        Permission::firstOrCreate(['name' => 'users_manage_edit']);
+        Permission::firstOrCreate(['name' => 'users_manage_update']);
+        Permission::firstOrCreate(['name' => 'users_manage_destroy']);
+
+
         $user->givePermissionTo('videos_manage_index');
         $user->givePermissionTo('videos_manage_create');
         $user->givePermissionTo('videos_manage_store');
         $user->givePermissionTo('videos_manage_edit');
         $user->givePermissionTo('videos_manage_update');
         $user->givePermissionTo('videos_manage_destroy');
+
+        $user->givePermissionTo('users_manage_index');
+        $user->givePermissionTo('users_manage_create');
+        $user->givePermissionTo('users_manage_store');
+        $user->givePermissionTo('users_manage_edit');
+        $user->givePermissionTo('users_manage_update');
+        $user->givePermissionTo('users_manage_destroy');
 
 
         return $user;

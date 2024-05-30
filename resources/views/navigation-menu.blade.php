@@ -24,6 +24,12 @@
                     </x-nav-link>
                     @endcan
 
+                    @can('users_manage_index')
+                        <x-nav-link href="/manage/users" :active="request()->routeIs('users.manage.index')">
+                            {{ __('Manage Users') }}
+                        </x-nav-link>
+                    @endcan
+
                 </div>
             </div>
 
@@ -171,6 +177,10 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link href="/manage/videos/" :active="request()->routeIs('videos.manage.index')">
                 {{ __('Manage Videos') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="/manage/users/" :active="request()->routeIs('users.manage.index')">
+                {{ __('Users Videos') }}
             </x-responsive-nav-link>
         </div>
 

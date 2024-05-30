@@ -29,5 +29,51 @@ class AuthServiceProvider extends ServiceProvider
             if ($user->isSuperAdmin()) return true;
             return false;
         });
+
+        Gate::define('videos_manage_edit', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('videos_manage_update', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('videos_manage_destroy', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('videos_manage_store', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('users_manage_index', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('users_manage_edit', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('users_manage_update', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('users_manage_destroy', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('users_manage_store', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
     }
 }

@@ -191,6 +191,8 @@ class VideosManageControllerTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
+    /** @test */
+
     public function superadmins_can_manage_videos()
     {
         $this->loginAsSuperAdmin();
@@ -207,7 +209,7 @@ class VideosManageControllerTest extends TestCase
 
     private function loginAsSuperAdmin()
     {
-        Auth::login(create_superadmin_user());
+        Auth::login(create_super_admin_user());
     }
     private function loginAsRegularUser()
     {

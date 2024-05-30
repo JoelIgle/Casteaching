@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UsersManageController;
 use App\Http\Controllers\VideosController;
 use App\Http\Controllers\VideosManageController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,7 @@ Route::middleware([
 
 Route::get('/videos/{id}', [VideosController::class, 'show'])->name('videos.show');
 
+//Route::post('/sanctum/token', \App\Http\Controllers\SanctumTokenController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
@@ -44,5 +46,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('/manage/videos/{id}', [VideosManageController::class, 'edit'])->middleware('can:videos_manage_edit');
     Route::put('/manage/videos/{id}', [VideosManageController::class, 'update'])->middleware('can:videos_manage_update');
+
+
+    Route::get('/manage/users', [UsersManageController::class, 'index'])->middleware('can:users_manage_index')->name('users.manage.index');
+    Route::post('/manage/users', [UsersManageController::class, 'store'])->middleware('can:users_manage_store');
+
+    Route::delete('/manage/users/{id}', [UsersManageController::class, 'destroy'])->middleware('can:users_manage_destroy');
+
+    Route::get('/manage/users/{id}', [UsersManageController::class, 'edit'])->middleware('can:users_manage_edit');
+    Route::put('/manage/users/{id}', [UsersManageController::class, 'update'])->middleware('can:users_manage_update');
+
 
 });
