@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\VideoCreatedEvent;
+use App\Models\Serie;
 use App\Models\Video;
 use App\Notifications\VideoCreated;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class VideosManageController extends Controller
     public function index()
     {
         return view('videos.manage.index',[
+            'series' => Serie::all(),
             'videos' => Video::all()
         ]);
 
@@ -29,6 +31,7 @@ class VideosManageController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'url' => $request->url,
+            'serie_id' => $request->serie_id,
         ]);
 
         // Obtenim l'usuari autenticat

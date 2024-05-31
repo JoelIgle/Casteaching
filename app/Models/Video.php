@@ -21,7 +21,7 @@ class Video extends Model
 //        'published_at',
 //        'previous',
 //        'next',
-//        'series_id',
+//        'serie_id',
 //    ];
 
     public function getFormattedPublishedAtAttribute(): string
@@ -32,6 +32,20 @@ class Video extends Model
         $published_at = \Carbon\Carbon::parse($this->published_at);
         $locale_date = optional($published_at)->locale(config('app.locale'));
         return $locale_date->day . ' de ' . $locale_date->monthName . ' de ' . $locale_date->year;
+    }
+
+    public function serie()
+    {
+        return $this->belongsTo(Serie::class);
+    }
+
+    public function setSerie(Serie $serie)
+    {
+        $this->serie_id = $serie->id;
+
+        $this->save();
+
+        return $this;
     }
 }
 

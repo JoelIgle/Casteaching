@@ -39,7 +39,7 @@ if (!function_exists('create_default_videos')) {
             'published_at' => Carbon::parse('December 1, 2020 8:00am'),
             'previous' => null,
             'next' => null,
-            'series_id' => 1,
+            'serie_id' => 1,
         ]);
     }
 }
@@ -83,7 +83,7 @@ if (!function_exists('create_sample_video')) {
             'published_at' => Carbon::parse('December 1, 2020 8:00am'),
             'previous' => null,
             'next' => null,
-            'series_id' => 1,
+            'serie_id' => 1,
         ]);
     }
 }
@@ -99,7 +99,7 @@ if (!function_exists('create_sample_videos')) {
             'published_at' => Carbon::parse('December 1, 2020 8:00am'),
             'previous' => null,
             'next' => null,
-            'series_id' => 1,
+            'serie_id' => 1,
         ]);
         $video2 = Video::create([
             'title' => 'Video de test 2',
@@ -108,7 +108,7 @@ if (!function_exists('create_sample_videos')) {
             'published_at' => Carbon::parse('December 1, 2020 8:00am'),
             'previous' => null,
             'next' => null,
-            'series_id' => 1,
+            'serie_id' => 1,
         ]);
 
         return [$video1, $video2];
@@ -274,7 +274,7 @@ if (!function_exists('create_video')) {
             'published_at' => Carbon::parse('December 1, 2020 8:00am'),
             'previous' => null,
             'next' => null,
-            'series_id' => 1,
+            'serie_id' => 1,
         ]);
 
         return $video;

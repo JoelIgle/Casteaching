@@ -20,7 +20,7 @@ class VideoTest extends TestCase
             'published_at' => null,
             'previous' => null,
             'next' => null,
-            'series_id' => 1,
+            'serie_id' => 1,
         ]);
 
         $dateToTest = $video->formatted_published_at;
