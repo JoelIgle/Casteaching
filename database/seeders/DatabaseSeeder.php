@@ -30,5 +30,7 @@ class DatabaseSeeder extends Seeder
 
         create_super_admin_user_profe();
 
+        create_sample_series();
+
     }
 }

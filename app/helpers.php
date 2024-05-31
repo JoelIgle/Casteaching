@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Serie;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Support\Carbon;
@@ -277,6 +278,33 @@ if (!function_exists('create_video')) {
         ]);
 
         return $video;
+    }
+}
+
+if (!function_exists('create_sample_series')) {
+
+    function create_sample_series()
+    {
+        $serie = Serie::create([
+            'title' => 'Serie 1',
+            'description' => 'Aquesta serie es de la bd',
+            'image' => '/series/tdd.png',
+            'teacher_name' => 'Teacher',
+            'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@iesebre.com')
+
+        ]);
+
+        $serie2 = Serie::create([
+            'title' => 'Serie 2',
+            'description' => 'Aquesta serie es de la bd',
+            'image' => '/series/placeholder.png',
+            'teacher_name' => 'Teacher',
+            'teacher_photo_url' => 'https://www.gravatar.com/avatar/' . md5('sergiturbadenas@iesebre.com')
+
+        ]);
+
+        return [$serie, $serie2];
+
     }
 }
 
