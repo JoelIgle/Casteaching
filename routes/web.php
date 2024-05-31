@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\landingPageController::class, 'show']);
+Route::get('/', [\App\Http\Controllers\landingPageController::class, 'show'])->name('series.show');
 
 Route::middleware([
     'auth:sanctum',
