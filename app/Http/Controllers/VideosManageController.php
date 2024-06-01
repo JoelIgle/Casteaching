@@ -32,6 +32,7 @@ class VideosManageController extends Controller
             'description' => $request->description,
             'url' => $request->url,
             'serie_id' => $request->serie_id,
+            'published_at' => now(),
         ]);
 
         // Obtenim l'usuari autenticat

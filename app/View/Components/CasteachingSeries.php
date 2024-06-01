@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Serie;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -26,8 +27,13 @@ class CasteachingSeries extends Component
      */
     public function render(): View|Closure|string
     {
+        // En tu controlador
+        $series = Serie::with(['videos' => function ($query) {
+            $query->orderBy('created_at');
+        }])->get();
+
         return view('components.casteaching-series',[
-            'series' => \App\Models\Serie::all()
+            'series' => $series
         ]);
     }
 }
