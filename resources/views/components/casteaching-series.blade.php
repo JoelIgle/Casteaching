@@ -7,7 +7,7 @@
             </div>
             <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                 @foreach($series as $serie)
-
+<a href="/videos/{{$serie->id}}">
                 <article class="flex flex-col items-start justify-between">
                     <div class="relative w-full">
                         <img src="{{ asset('storage/' . $serie->image) }}" alt="" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </article>
-
+</a>
                 @endforeach
             </div>
 
