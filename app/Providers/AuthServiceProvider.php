@@ -75,5 +75,56 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
 
+        Gate::define('series_manage_index', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('series_manage_edit', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('series_manage_update', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('series_manage_destroy', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('series_manage_store', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('series_manage_image_edit', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('series_manage_image_update', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('series_manage_image_destroy', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('series_manage_image_store', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+        Gate::define('series_manage_image_update', function (User $user ) {
+            if ($user->isSuperAdmin()) return true;
+            return false;
+        });
+
+
     }
 }

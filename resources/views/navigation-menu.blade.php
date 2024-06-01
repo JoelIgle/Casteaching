@@ -15,9 +15,9 @@
                     <x-nav-link href="{{ route('series.show') }}" :active="request()->routeIs('series.show')">
                         {{ __('Series') }}
                     </x-nav-link>
-                    <x-nav-link href="/videos/1" :active="request()->routeIs('videos.show')">
-                        {{ __('Videos 1') }}
-                    </x-nav-link>
+{{--                    <x-nav-link href="/videos/1" :active="request()->routeIs('videos.show')">--}}
+{{--                        {{ __('Videos 1') }}--}}
+{{--                    </x-nav-link>--}}
                     @can('videos_manage_index')
                     <x-nav-link href="/manage/videos" :active="request()->routeIs('videos.manage.index')">
                         {{ __('Manage Videos') }}
@@ -27,6 +27,12 @@
                     @can('users_manage_index')
                         <x-nav-link href="/manage/users" :active="request()->routeIs('users.manage.index')">
                             {{ __('Manage Users') }}
+                        </x-nav-link>
+                    @endcan
+
+                    @can('series_manage_index')
+                        <x-nav-link href="/manage/series" :active="request()->routeIs('manage.series')">
+                            {{ __('Manage Series') }}
                         </x-nav-link>
                     @endcan
 
@@ -172,9 +178,9 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="/videos/1" :active="request()->routeIs('videos.show')">
-                {{ __('Videos 1') }}
-            </x-responsive-nav-link>
+{{--            <x-responsive-nav-link href="/videos/1" :active="request()->routeIs('videos.show')">--}}
+{{--                {{ __('Videos 1') }}--}}
+{{--            </x-responsive-nav-link>--}}
             <x-responsive-nav-link href="/manage/videos/" :active="request()->routeIs('videos.manage.index')">
                 {{ __('Manage Videos') }}
             </x-responsive-nav-link>

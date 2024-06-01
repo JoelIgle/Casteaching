@@ -196,6 +196,14 @@ if (!function_exists('create_super_admin_user')) {
         Permission::firstOrCreate(['name' => 'users_manage_update']);
         Permission::firstOrCreate(['name' => 'users_manage_destroy']);
 
+        Permission::firstOrCreate(['name' => 'series_manage_index']);
+        Permission::firstOrCreate(['name' => 'series_manage_create']);
+        Permission::firstOrCreate(['name' => 'series_manage_store']);
+        Permission::firstOrCreate(['name' => 'series_manage_edit']);
+        Permission::firstOrCreate(['name' => 'series_manage_update']);
+        Permission::firstOrCreate(['name' => 'series_manage_destroy']);
+
+
 
         $user->givePermissionTo('videos_manage_index');
         $user->givePermissionTo('videos_manage_create');
@@ -210,6 +218,13 @@ if (!function_exists('create_super_admin_user')) {
         $user->givePermissionTo('users_manage_edit');
         $user->givePermissionTo('users_manage_update');
         $user->givePermissionTo('users_manage_destroy');
+
+        $user->givePermissionTo('series_manage_index');
+        $user->givePermissionTo('series_manage_create');
+        $user->givePermissionTo('series_manage_store');
+        $user->givePermissionTo('series_manage_edit');
+        $user->givePermissionTo('series_manage_update');
+        $user->givePermissionTo('series_manage_destroy');
 
 
 
@@ -243,6 +258,14 @@ if (!function_exists('create_super_admin_user_profe')) {
         Permission::firstOrCreate(['name' => 'users_manage_update']);
         Permission::firstOrCreate(['name' => 'users_manage_destroy']);
 
+        Permission::firstOrCreate(['name' => 'series_manage_index']);
+        Permission::firstOrCreate(['name' => 'series_manage_create']);
+        Permission::firstOrCreate(['name' => 'series_manage_store']);
+        Permission::firstOrCreate(['name' => 'series_manage_edit']);
+        Permission::firstOrCreate(['name' => 'series_manage_update']);
+        Permission::firstOrCreate(['name' => 'series_manage_destroy']);
+
+
 
         $user->givePermissionTo('videos_manage_index');
         $user->givePermissionTo('videos_manage_create');
@@ -257,6 +280,14 @@ if (!function_exists('create_super_admin_user_profe')) {
         $user->givePermissionTo('users_manage_edit');
         $user->givePermissionTo('users_manage_update');
         $user->givePermissionTo('users_manage_destroy');
+
+        $user->givePermissionTo('series_manage_index');
+        $user->givePermissionTo('series_manage_create');
+        $user->givePermissionTo('series_manage_store');
+        $user->givePermissionTo('series_manage_edit');
+        $user->givePermissionTo('series_manage_update');
+        $user->givePermissionTo('series_manage_destroy');
+
 
 
         return $user;

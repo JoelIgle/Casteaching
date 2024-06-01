@@ -1,9 +1,15 @@
 <?php
 
+use App\Http\Controllers\GithubAuthController;
+use App\Http\Controllers\SeriesManageController;
 use App\Http\Controllers\UsersManageController;
 use App\Http\Controllers\VideosController;
 use App\Http\Controllers\VideosManageController;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +22,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/auth/redirect', [GithubAuthController::class, 'redirect']);
+
+Route::get('/auth/callback', [GithubAuthController::class, 'callback']);
+
+
+
+
 Route::get('/', [\App\Http\Controllers\landingPageController::class, 'show'])->name('series.show');
+
+Route::get('/manage/series', [ SeriesManageController::class,'index'])->middleware(['can:series_manage_index'])
+    ->name('manage.series');
+
+Route::post('/manage/series',[ SeriesManageController::class,'store' ])->middleware(['can:series_manage_store']);
+Route::delete('/manage/series/{id}',[ SeriesManageController::class,'destroy' ])->middleware(['can:series_manage_destroy']);
+Route::get('/manage/series/{id}',[ SeriesManageController::class,'edit' ])->middleware(['can:series_manage_edit']);
+Route::put('/manage/series/{id}',[ SeriesManageController::class,'update' ])->middleware(['can:series_manage_update']);
+
+//Route::put('/manage/series/{id}/image',[ SeriesImagesManageController::class,'update' ])->middleware(['can:series_manage_update']);
+
+
 
 Route::middleware([
     'auth:sanctum',
